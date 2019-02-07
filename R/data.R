@@ -1,0 +1,28 @@
+#' Data set on members of the European Parliament
+#'
+#' The dataset contains data on all MEPs for parliamentary terms 1 through 8.
+#'
+#' @format A data frame with eight variables:
+#' \describe{
+#' \item{\code{id}}{ID number.}
+#' \item{\code{full_name}}{Full name.}
+#' \item{\code{pterm}}{Parliamentary term.}
+#' \item{\code{pg}}{Political group in the EP. See details.}
+#' \item{\code{np}}{National party. See details.}
+#' \item{\code{country}}{Country.}
+#' \item{\code{pg_full}}{Data frame with full info on roles and political
+#' group memberships during a given parliamentary term.}
+#' \item{\code{np_full}}{Data frame with full info on roles and political
+#' group memberships during a given parliamentary term.}
+#'
+#' Technically, \code{pg} and \code{np} are the political group and national
+#' party the MEP belonged to at the beginning of the parliamentary term. Since
+#' some MEPs switch parties/groups during the term, \code{pg_full} and
+#' \code{np_full} contain data frames with the full details of party
+#' allegiances, roles, and dates.
+#'
+#' For further details, see
+#' \url{https://http://www.europarl.europa.eu}
+#' @examples{str(meps)}
+#'
+"meps"
