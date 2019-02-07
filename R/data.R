@@ -14,6 +14,7 @@
 #' group memberships during a given parliamentary term.}
 #' \item{\code{np_full}}{Data frame with full info on roles and political
 #' group memberships during a given parliamentary term.}
+#' }
 #'
 #' Technically, \code{pg} and \code{np} are the political group and national
 #' party the MEP belonged to at the beginning of the parliamentary term. Since

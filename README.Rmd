@@ -1,0 +1,43 @@
+---
+output: github_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# meps
+
+This package contains a data set of all members of the European Parliament, 
+for all parliamentary terms (1 through 8).
+
+Please cite as follows:
+
+> Eric Persson (2019). meps: Data set on members of the European Parliament. 
+> R package version 0.0.0.9000.
+> https://www.github.com/expersso/meps
+
+## Installation
+
+You can install the development version with:
+
+```r
+devtools::install_github("expersso/meps)
+```
+
+## Example
+
+```{r}
+library(tibble)
+library(meps)
+head(meps)
+```
+
+Note that the last two columns are lists of data frames, and may not print 
+properly without the `tibble` package. See the documentation `help(meps)` for
+explanations of what information these columns contain.
