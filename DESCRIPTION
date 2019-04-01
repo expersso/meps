@@ -1,9 +1,10 @@
 Package: meps
-Title: Data set on members of the European Parliament
+Title: Data Set on Members of the European Parliament
 Version: 0.0.0.9000
 Authors@R: person("Eric", "Persson", email = "expersso5@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-Depends: R (>= 3.4.1)
+Description: Contains a data set on members of the European Parliament for 
+  parliamentary terms one through eight.
+Depends: R (>= 3.4.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

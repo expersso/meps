@@ -23,7 +23,7 @@
 #' allegiances, roles, and dates.
 #'
 #' For further details, see
-#' \url{https://http://www.europarl.europa.eu}
+#' \url{https://www.europarl.europa.eu}
 #' @examples{str(meps)}
 #'
 "meps"

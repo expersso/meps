@@ -25,7 +25,7 @@ some MEPs switch parties/groups during the term, \code{pg_full} and
 allegiances, roles, and dates.
 
 For further details, see
-\url{https://http://www.europarl.europa.eu}}
+\url{https://www.europarl.europa.eu}}
 \usage{
 meps
 }

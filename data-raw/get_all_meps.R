@@ -65,11 +65,11 @@ get_national_parties <- . %>%
 
 # Input: A character string (of political group/national party details)
 # Output: A data frame with all details
-clean_group_and_party <- function(x, np = FALSE) {
+clean_group <- function(x) {
 
   # Suppress warnings due to MEP not having role specified
   suppressWarnings(
-    df <- tibble(
+    tibble(
       text = str_split(x, "[\n\t\r]+") %>% flatten_chr()
     ) %>%
       separate(text, c("period", "party_role"), " : ") %>%
@@ -77,18 +77,26 @@ clean_group_and_party <- function(x, np = FALSE) {
       separate(party_role, c("party", "role"), " - ") %>%
       mutate(from = dmy(from), to = dmy(to))
   )
+}
 
-  # If parsing national party, add country column
-  if(np) {
-    df$country <- str_replace(df$party, ".*\\((.*)\\)$", "\\1")
-    df$party <- str_remove(df$party, " \\(.*\\)$")
-  }
+clean_party <- function(x) {
 
-  df
+  tibble(
+    text = str_split(x, "[\n\t\r]+") %>% flatten_chr()
+  ) %>%
+    separate(text, c("period", "party_role"), " : ") %>%
+    separate(period, c("from", "to"), " / ") %>%
+    mutate(
+      from = dmy(from), to = dmy(to),
+      country = str_replace(party_role, ".*\\((.*)\\)$", "\\1"),
+      party = str_remove(party_role, " \\(.*\\)$")
+    ) %>%
+    select(from, to, party, country)
 }
 
 # IO
 path_meps_raw <- "data-raw/meps_raw.rds"
+dir_meps <- "data-raw/meps_html/"
 parliamentary_terms <- 1:8
 
 if(!file.exists(path_meps_raw)) {
@@ -111,8 +119,8 @@ meps <- meps_raw %>%
   mutate(
     path = file.path(dir_meps, glue("{id}_{pterm}.html")),
     page = map(path, read_html),
-    pg_full = map(page, ~clean_group_and_party(get_political_groups(.))),
-    np_full = map(page, ~clean_group_and_party(get_national_parties(.), TRUE)),
+    pg_full = map(page, ~clean_group(get_political_groups(.))),
+    np_full = map(page, ~clean_party(get_national_parties(.))),
     pg = map_chr(pg_full, ~.$party[1]),
     np = map_chr(np_full, ~.$party[1]),
     country = map_chr(np_full, ~.$country[1])
@@ -121,4 +129,4 @@ meps <- meps_raw %>%
   select(id, full_name, pterm, pg, np, country, pg_full, np_full)
 
 write_rds(meps, "data-raw/meps.rds")
-usethis::use_data(meps)
+usethis::use_data(meps, overwrite = TRUE)

@@ -15,13 +15,14 @@ Please cite as follows:
 You can install the development version with:
 
 ``` r
-devtools::install_github("expersso/meps)
+devtools::install_github("expersso/meps")
 ```
 
 ## Example
 
 ``` r
 library(tibble)
+#> Warning: package 'tibble' was built under R version 3.5.3
 library(meps)
 head(meps)
 #> # A tibble: 6 x 8
@@ -37,4 +38,5 @@ head(meps)
 
 Note that the last two columns are lists of data frames, and may not
 print properly without the `tibble` package. See the documentation
-`help(meps)` for explanations of what information these columns contain.
+`?meps::meps` for explanations of what information these columns
+contain.
