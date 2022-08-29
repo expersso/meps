@@ -4,7 +4,8 @@
 \name{meps}
 \alias{meps}
 \title{Data set on members of the European Parliament}
-\format{A data frame with eight variables:
+\format{
+A data frame with eight variables:
 \describe{
 \item{\code{id}}{ID number.}
 \item{\code{full_name}}{Full name.}
@@ -25,7 +26,8 @@ some MEPs switch parties/groups during the term, \code{pg_full} and
 allegiances, roles, and dates.
 
 For further details, see
-\url{https://www.europarl.europa.eu}}
+\url{https://www.europarl.europa.eu}
+}
 \usage{
 meps
 }

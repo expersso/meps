@@ -18,9 +18,13 @@ for all parliamentary terms (1 through 8).
 
 Please cite as follows:
 
-> Eric Persson (2019). meps: Data set on members of the European Parliament. 
-> R package version 0.0.0.9000.
-> https://www.github.com/expersso/meps
+> Nicolò Fraccaroli, Alessandro Giovannini, Jean-François Jamet, Eric Persson,
+> Ideology and monetary policy. The role of political parties’ stances in the European Central > Bank’s parliamentary hearings,
+> European Journal of Political Economy,
+> 2022,
+> 102207,
+> ISSN 0176-2680,
+> https://doi.org/10.1016/j.ejpoleco.2022.102207.
 
 ## Installation
 
